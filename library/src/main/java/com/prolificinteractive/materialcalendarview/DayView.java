@@ -197,15 +197,17 @@ import static com.prolificinteractive.materialcalendarview.MaterialCalendarView.
     }
 
     mCircleDrawable.setBounds(circleDrawableRect);
-
+    mCircleDrawable.setAlpha(255);
     super.onDraw(canvas);
   }
 
   private void regenerateBackground() {
     if (selectionDrawable != null) {
+      mCircleDrawable.setAlpha(0);
       setBackgroundDrawable(selectionDrawable);
     } else {
       mCircleDrawable = generateBackground(selectionColor, fadeTime, circleDrawableRect);
+      mCircleDrawable.setAlpha(0);
       setBackgroundDrawable(mCircleDrawable);
     }
   }
